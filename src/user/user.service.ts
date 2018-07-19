@@ -12,11 +12,14 @@ export class UserService {
   }
 
   public login(email:string, password:string):Observable<any> {
-    return this.http.get(this.apiHost+"/b/59e560b708be13271f7df4ff").map((response) => {
-      return response.json();
+    return new Observable((observer) => {
+      observer.next({
+        id: '01',
+        firstName: 'miguelon',
+        lastName: 'mundi',
+        email: 'miguel_mundi@gmail.com'
+      })
+      observer.complete()
     })
-      .catch((err) => {
-        throw Observable.throw(err);
-      });
   }
 }
