@@ -38,8 +38,11 @@ describe('List Page', () => {
     expect(component instanceof ListPage).toBe(true);
   });
 
-  // it('should have two pages', () => {
-  //   expect(component.pages.length).toBe(2);
-  // });
+  it('should know if it has internet connection', () => {
+    simulateConnection(true);
+    expect(component.connection).toBe(true);
+    simulateConnection(false);
+    expect(component.connection).toBe(false);
+  });
 
 });
