@@ -15,6 +15,10 @@ describe('List Page', () => {
   let fixture;
   let component;
 
+  let simulateConnection = function(connection){
+    component.connection = connection
+  }
+
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ListPage],
@@ -44,5 +48,4 @@ describe('List Page', () => {
     simulateConnection(false);
     expect(component.connection).toBe(false);
   });
-
 });

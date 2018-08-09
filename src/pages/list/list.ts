@@ -7,7 +7,7 @@ import { IonicPage } from 'ionic-angular';
   templateUrl: 'list.html',
 })
 export class ListPage {
-
+	connection: boolean;
   constructor() {
   }
 
