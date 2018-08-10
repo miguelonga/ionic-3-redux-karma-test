@@ -1,6 +1,8 @@
 import { async, TestBed } from '@angular/core/testing';
 import { IonicModule, Platform } from 'ionic-angular';
 
+import { By }           from '@angular/platform-browser';
+
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
@@ -47,5 +49,17 @@ describe('List Page', () => {
     expect(component.connection).toBe(true);
     simulateConnection(false);
     expect(component.connection).toBe(false);
+  });
+
+  it('should display no internet message', () => {
+    simulateConnection(false);
+    fixture.detectChanges();
+    let message = fixture.debugElement.query(By.css('#error-message')).nativeElement.innerText;
+    expect(message).toContain('internet');
+
+    simulateConnection(true);
+    fixture.detectChanges();
+    message = fixture.debugElement.query(By.css('#error-message'))
+    expect(message).toBeNull();
   });
 });
